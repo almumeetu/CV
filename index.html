@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Al Mumeetu Saikat — Software Developer experienced in full-stack web applications, Next.js, React, TypeScript, WordPress, WooCommerce, POS systems, and PostgreSQL." />
+  <meta name="theme-color" content="#edf0ec" />
+  <meta name="color-scheme" content="light" />
+  <title>Al Mumeetu Saikat | Software Developer | CV</title>
+  <style>
+    :root {
+      --background: #edf0ec;
+      --paper: #fff;
+      --ink: #213a33;
+      --body: #40514a;
+      --muted: #5e6e65;
+      --accent: #22634e;
+      --accent-soft: #edf5ef;
+      --line: #dfe6df;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--body);
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: #cce6d7; color: var(--ink); }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+    h1, h2, h3, p, ul, dl, dd { margin: 0; }
+    h1, h2, h3 { color: var(--ink); }
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 10;
+      padding: 10px 18px;
+      background: var(--paper);
+    }
+    .skip-link:focus { top: 12px; }
+    .workspace-bar, .page-footer {
+      width: min(1120px, calc(100% - 64px));
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .workspace-bar { min-height: 96px; }
+    .document-label {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .document-mark {
+      display: grid;
+      width: 33px;
+      height: 33px;
+      place-items: center;
+      border: 1px solid #ccd6cd;
+      border-radius: 8px;
+      background: #f6f8f4;
+    }
+    .toolbar-actions, .section-nav { display: flex; align-items: center; gap: 28px; }
+    .section-nav a { color: var(--muted); font-size: 12px; font-weight: 500; text-decoration: none; }
+    .section-nav a:hover { color: var(--accent); text-decoration: underline; }
+    .print-button {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 10px 17px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      background: var(--ink);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 150ms ease;
+    }
+    .print-button:hover { border-color: var(--accent); background: var(--accent); }
+    .icon {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cv {
+      width: min(1120px, calc(100% - 64px));
+      margin-inline: auto;
+      overflow: hidden;
+      border: 1px solid #dce3db;
+      border-top: 5px solid var(--accent);
+      border-radius: 3px;
+      background: var(--paper);
+      box-shadow: 0 12px 50px rgb(33 58 51 / 5%);
+    }
+    .cv-header { padding: 48px 56px 30px; }
+    .identity { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .eyebrow {
+      margin-bottom: 13px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    h1 { font-size: clamp(36px, 4.8vw, 56px); font-weight: 650; letter-spacing: -.035em; line-height: 1.12; }
+    .surname { color: var(--accent); }
+    .role { margin-top: 12px; font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
+    .specialization { margin-top: 4px; color: var(--muted); font-size: 13px; }
+    .profile-photo {
+      display: block;
+      width: 96px;
+      height: 120px;
+      flex: 0 0 auto;
+      padding: 3px;
+      border: 1px solid #d6e0d8;
+      border-radius: 10px;
+      background: #f4f7f3;
+      object-fit: cover;
+      object-position: center top;
+      box-shadow: 0 4px 12px rgba(33, 58, 51, 0.06);
+    }
+    .contact-list {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 12px 24px;
+      margin-top: 30px;
+      padding: 22px 0 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+    .contact-list li, .contact-list a {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 9px;
+      color: var(--body);
+      font-size: 12px;
+      line-height: 1.5;
+      text-decoration: none;
+    }
+    .contact-list a { overflow-wrap: anywhere; }
+    .contact-list a:hover { color: var(--accent); text-decoration: underline; }
+    .contact-list .icon { width: 14px; height: 14px; color: var(--accent); }
+    .profile-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 256px;
+      align-items: start;
+      gap: 52px;
+      padding: 30px 56px;
+      border-block: 1px solid var(--line);
+      background: #f8faf7;
+    }
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .14em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .section-heading::after { height: 1px; flex: 1; background: var(--line); content: ""; }
+    .profile-section .section-heading { margin-bottom: 11px; }
+    .profile-text { font-size: 14px; line-height: 1.85; }
+    .profile-text strong { color: var(--ink); font-weight: 650; }
+    .career-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding-left: 28px;
+      border-left: 1px solid var(--line);
+    }
+    .career-highlights dd { color: var(--accent); font-size: 34px; font-weight: 600; letter-spacing: -.06em; line-height: 1.15; }
+    .career-highlights dt { margin-top: 8px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .highlight { display: flex; flex-direction: column-reverse; justify-content: end; }
+    .resume-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 256px;
+      align-items: start;
+      gap: 52px;
+      padding: 36px 56px 48px;
+    }
+    .main-column, .sidebar { min-width: 0; }
+    .main-column > section + section { margin-top: 34px; }
+    .job + .job { margin-top: 28px; padding-top: 25px; border-top: 1px solid var(--line); }
+    .job-header { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+    .job h3, .project h3 { font-size: 17px; font-weight: 650; letter-spacing: -.025em; line-height: 1.45; }
+    .date { flex: 0 0 auto; color: var(--muted); font-size: 11px; font-weight: 500; white-space: nowrap; }
+    .company { margin-top: 4px; color: var(--accent); font-size: 13px; font-weight: 600; }
+    .job-location { color: var(--muted); font-size: 11px; font-weight: 400; }
+    .detail-list { margin-top: 13px; padding-left: 17px; font-size: 13px; line-height: 1.8; }
+    .detail-list li { padding-left: 3px; }
+    .detail-list li + li { margin-top: 7px; }
+    .detail-list li::marker { color: var(--accent); font-size: .8em; }
+    .detail-list strong { color: var(--ink); font-weight: 650; }
+    .project + .project { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .project h3 { font-size: 15px; }
+    .project-stack { margin-top: 5px; color: var(--accent); font-size: 10px; font-weight: 500; line-height: 1.8; }
+    .project-description { margin-top: 9px; font-size: 13px; line-height: 1.8; }
+    .sidebar { padding-left: 28px; border-left: 1px solid var(--line); }
+    .sidebar > section + section { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .sidebar .section-heading { margin-bottom: 18px; }
+    .sidebar .section-heading::after { display: none; }
+    .skill-group + .skill-group { margin-top: 20px; }
+    .skill-group dt { margin-bottom: 8px; color: var(--ink); font-size: 12px; font-weight: 650; }
+    .skill-group dd { color: var(--muted); font-size: 12px; line-height: 1.9; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 9px; padding: 0; list-style: none; }
+    .skill-tags li {
+      padding: 3px 8px;
+      border: 1px solid #d7e5da;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .education h3 { font-size: 13px; font-weight: 650; line-height: 1.65; }
+    .school { margin-top: 7px; font-size: 12px; }
+    .education-status { display: inline-block; margin-top: 7px; color: var(--accent); font-size: 11px; font-weight: 500; }
+    .strength-list { padding: 0; list-style: none; font-size: 12px; line-height: 1.8; }
+    .strength-list li + li { margin-top: 7px; }
+    .language + .language { margin-top: 13px; }
+    .language dt { color: var(--ink); font-size: 12px; font-weight: 650; }
+    .language dd { margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .cv-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 0 56px;
+      padding: 18px 0 23px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .03em;
+    }
+    .cv-footer a { font-weight: 500; text-decoration: none; }
+    .page-footer { padding-block: 21px 32px; color: var(--muted); font-size: 11px; }
+    .page-footer a { white-space: nowrap; text-decoration: none; }
+
+    @media (min-width: 761px) and (max-width: 1050px) {
+      .cv-header { padding: 38px 36px 26px; }
+      .profile-section, .resume-grid { grid-template-columns: minmax(0, 1fr) 220px; gap: 30px; padding-inline: 36px; }
+      .sidebar { padding-left: 22px; }
+      .job-header { flex-direction: column; gap: 3px; }
+      .cv-footer { margin-inline: 36px; }
+      .contact-list { grid-template-columns: 1.2fr 1fr; }
+    }
+    @media (max-width: 760px) {
+      .workspace-bar, .page-footer, .cv { width: calc(100% - 32px); }
+      .workspace-bar { min-height: 78px; gap: 12px; }
+      .section-nav { display: none; }
+      .document-label { font-size: 11px; }
+      .print-button { min-height: 44px; padding: 10px 13px; font-size: 11px; }
+      .cv-header { padding: 34px 28px 26px; }
+      .identity { gap: 16px; }
+      h1 { max-width: 450px; font-size: clamp(34px, 7vw, 46px); }
+      .profile-photo { width: 64px; height: 64px; }
+      .role { font-size: 18px; }
+      .contact-list { grid-template-columns: 1fr 1fr; gap: 16px 20px; margin-top: 24px; }
+      .contact-list a, .contact-list li { font-size: 12px; }
+      .profile-section { grid-template-columns: 1fr; gap: 22px; padding: 26px 28px; }
+      .career-highlights { max-width: 320px; padding: 0; border: 0; }
+      .career-highlights dd { font-size: 28px; }
+      .career-highlights dt { margin-top: 4px; }
+      .resume-grid { grid-template-columns: 1fr; gap: 34px; padding: 30px 28px 32px; }
+      .job-header { flex-direction: column; gap: 3px; }
+      .job h3 { font-size: 17px; }
+      .detail-list, .project-description { font-size: 14px; }
+      .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 28px 0 0; border-top: 1px solid var(--line); border-left: 0; }
+      .sidebar > section + section { margin: 0; padding: 0; border: 0; }
+      .cv-footer { margin-inline: 28px; }
+    }
+    @media (max-width: 480px) {
+      .document-label > span:last-child { display: none; }
+      .cv-header, .profile-section, .resume-grid { padding-inline: 23px; }
+      .eyebrow { font-size: 9px; }
+      .profile-photo { width: 58px; height: 58px; padding: 3px; }
+      .contact-list, .sidebar { grid-template-columns: 1fr; }
+      .contact-list { gap: 5px; padding-top: 16px; }
+      .contact-list a, .contact-list li { min-height: 35px; font-size: 13px; }
+      .sidebar > section + section { padding-top: 23px; border-top: 1px solid var(--line); }
+      .skill-group dt, .skill-group dd, .education h3, .school, .strength-list, .language dt { font-size: 13px; }
+      .cv-footer { flex-direction: column; align-items: start; gap: 5px; margin-inline: 23px; }
+      .page-footer { align-items: start; font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .print-button { transition: none; }
+    }
+    @page { size: A4; margin: 10mm 15mm; }
+    @media print {
+      html { scroll-behavior: auto; }
+      body { background: var(--background); font-size: 13px; line-height: 1.5; }
+      .workspace-bar, .page-footer, .skip-link { display: none !important; }
+      .cv {
+        width: 100%;
+        overflow: visible;
+        box-shadow: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .cv-header { padding: 20px 42px 12px; }
+      .profile-section { grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; padding: 16px 42px 18px; align-items: start; }
+      .resume-grid { grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; padding: 18px 42px 24px; }
+      .cv-footer { margin-inline: 42px; padding-block: 12px 16px; }
+      .profile-photo { width: 84px; height: 104px; border-radius: 8px; }
+      h1 { font-size: 42px; }
+      .role { margin-top: 10px; font-size: 18px; }
+      .specialization { font-size: 12px; }
+      .contact-list { margin-top: 18px; padding-top: 14px; gap: 8px 18px; }
+      .contact-list li, .contact-list a { font-size: 11px; }
+      .section-heading { margin-bottom: 10px; font-size: 10px; }
+      .profile-text { font-size: 12px; line-height: 1.58; }
+      .career-highlights { gap: 18px; padding-left: 20px; }
+      .career-highlights dd { font-size: 30px; }
+      .career-highlights dt { margin-top: 6px; font-size: 10px; }
+      .main-column > section + section { margin-top: 24px; }
+      .job + .job { margin-top: 18px; padding-top: 15px; }
+      .job h3, .project h3 { font-size: 15px; }
+      .company { margin-top: 4px; font-size: 11px; }
+      .detail-list, .project-description { margin-top: 8px; font-size: 11px; line-height: 1.55; }
+      .detail-list li + li { margin-top: 5px; }
+      .project + .project { margin-top: 16px; padding-top: 13px; }
+      .project-stack { margin-top: 4px; font-size: 9.5px; }
+      .sidebar { padding-left: 22px; }
+      .sidebar > section + section { margin-top: 22px; padding-top: 16px; }
+      .sidebar .section-heading { margin-bottom: 12px; }
+      .skill-group + .skill-group { margin-top: 12px; }
+      .skill-group dt, .skill-group dd, .education h3, .school, .education-status, .strength-list, .language dt, .language dd { font-size: 11px; line-height: 1.5; }
+      .education-secondary { margin-top: 14px; }
+      .profile-section, .resume-grid, .cv-footer { break-inside: auto; }
+      .job, .project, .sidebar section { break-inside: avoid; }
+      .cv-footer { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#cv">Skip to CV</a>
+  <div class="workspace-bar">
+    <div class="document-label">
+      <span class="document-mark" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z" /><path d="M14 3v5h5M9 12h6M9 16h6" /></svg>
+      </span>
+      <span>Curriculum vitae</span>
+    </div>
+    <div class="toolbar-actions">
+      <nav class="section-nav" aria-label="CV sections">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+      </nav>
+      <button class="print-button" id="print-cv" type="button" hidden>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4" /></svg>
+        Print / Save PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Edit the visible HTML to update this CV. No build step or external assets are required. -->
+  <main class="cv" id="cv" aria-labelledby="cv-name" tabindex="-1">
+    <header class="cv-header">
+      <div class="identity">
+        <div>
+          <p class="eyebrow">Software engineering</p>
+          <h1 id="cv-name">Al Mumeetu <span class="surname">Saikat</span></h1>
+          <p class="role">Frontend Engineer <span aria-hidden="true">|</span> React &amp; Next.js Specialist <span aria-hidden="true">|</span> Full-Stack Developer</p>
+          <p class="specialization">React · Next.js · TypeScript · E-Commerce Solutions</p>
+        </div>
+      </div>
+      <ul class="contact-list" aria-label="Contact details and professional profiles">
+        <li><a href="mailto:almumeetu@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg>
+          almumeetu@gmail.com
+        </a></li>
+        <li><a href="tel:+8801722301927">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 3 3 5-3 2a16 16 0 0 0 7 7l2-3 5 3-1 4C10 22 2 14 3 4z" /></svg>
+          +880 1722 301927
+        </a></li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+          Dhaka, Bangladesh
+        </li>
+        <li><a href="https://www.almumeetusaikat.me/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio: www.almumeetusaikat.me (opens in a new tab)">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18Z" /></svg>
+          www.almumeetusaikat.me
+        </a></li>
+        <li><a href="https://github.com/almumeetu" target="_blank" rel="noopener noreferrer" aria-label="GitHub: almumeetu (opens in a new tab)">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16" /></svg>
+          github.com/almumeetu
+        </a></li>
+        <li><a href="https://www.linkedin.com/in/almumeetu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: almumeetu (opens in a new tab)">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 10v7m0-10v.01M11 17v-7m0 3a3 3 0 0 1 6 0v4" /></svg>
+          linkedin.com/in/almumeetu
+        </a></li>
+        <li><a href="https://www.upwork.com/freelancers/almumeetu" target="_blank" rel="noopener noreferrer" aria-label="Upwork profile: almumeetu (opens in a new tab)">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 8a3.5 3.5 0 0 0-3.5 3.5V18h2v-6.5a1.5 1.5 0 1 1 3 0V18h2v-6.5A3.5 3.5 0 0 0 15.5 8ZM6 8h3v10H6Zm0-3h3v2H6Z" /><path d="M9 8h3.5a3.5 3.5 0 0 1 0 7H9" /></svg>
+          upwork.com/freelancers/almumeetu
+        </a></li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 7v5c0 5 3.4 9.6 9 11 5.6-1.4 9-6 9-11V7zm0 5.5 5 2.7-5 2.8-5-2.8zm0 5.3v4.3m-4-2.3 4 2.2 4-2.2" /></svg>
+          Government Freelancer Card (ICT Division)
+        </li>
+      </ul>
+    </header>
+
+    <section class="profile-section" aria-labelledby="summary-heading">
+      <div>
+        <h2 class="section-heading" id="summary-heading">Professional summary</h2>
+        <p class="profile-text">
+          Frontend-focused software developer with <strong>4+ years of experience</strong>
+          building production web applications, ERP systems, e-commerce platforms, POS solutions,
+          and business workflows. Specializes in <strong>React, Next.js, TypeScript, WordPress,
+          and WooCommerce</strong>, with practical experience in REST APIs, Prisma, PostgreSQL,
+          Supabase, Docker, and responsive UI architecture. Collaborates with clients and teams to
+          translate requirements into scalable product features, efficient workflows, and reliable
+          production-ready delivery.
+        </p>
+      </div>
+      <dl class="career-highlights" aria-label="Career highlights">
+        <div class="highlight"><dt>Years of<br />experience</dt><dd>4+</dd></div>
+        <div class="highlight"><dt>Responsive<br />websites built</dt><dd>120+</dd></div>
+      </dl>
+    </section>
+
+    <div class="resume-grid">
+      <div class="main-column">
+        <section id="experience" aria-labelledby="experience-heading">
+          <h2 class="section-heading" id="experience-heading">Professional experience</h2>
+          <article class="job" aria-labelledby="softzino-role">
+            <div class="job-header">
+              <h3 id="softzino-role">Associate Software Developer</h3>
+              <p class="date"><time datetime="2024-01">Jan 2024</time> — Present</p>
+            </div>
+            <p class="company">Softzino Technologies <span class="job-location">· Dhaka, Bangladesh</span></p>
+            <ul class="detail-list">
+              <li>Develop and maintain production e-commerce and Point-of-Sale interfaces using Next.js, React, and TypeScript.</li>
+              <li>Build reusable responsive components, commerce workflows, and client-side interactions from product requirements and designs.</li>
+              <li>Integrate REST APIs and relational data using Prisma ORM, PostgreSQL, and Supabase, including inventory-related operations.</li>
+              <li>Collaborate directly with clients and stakeholders to gather requirements, discuss solutions, manage feedback, and deliver production-ready features.</li>
+              <li>Use Docker, Git, code review, and collaborative Agile workflows to deliver production features, fixes, and improvements.</li>
+              <li>Deliver tailored WordPress/WooCommerce solutions for international clients, including custom Elementor widgets and frontend fixes.</li>
+            </ul>
+          </article>
+          <article class="job" aria-labelledby="webdev-role">
+            <div class="job-header">
+              <h3 id="webdev-role">Frontend Developer / Web Designer</h3>
+              <p class="date"><time datetime="2022-11">Nov 2022</time> — <time datetime="2023-12">Dec 2023</time></p>
+            </div>
+            <p class="company">WebDev Software Solutions</p>
+            <ul class="detail-list">
+              <li>Developed <strong>120+ responsive, cross-browser websites</strong> using HTML5, CSS3, JavaScript, SCSS, and Bootstrap.</li>
+              <li>Converted client requirements and UI designs into production-ready interfaces; resolved layout, compatibility, and performance issues.</li>
+              <li>Customized WordPress themes, plugins, and WooCommerce sites while collaborating in Git/GitHub-based multi-developer sprint teams.</li>
+              <li>Built modular JavaScript utilities and solved <strong>200+ UI logic and algorithm challenges</strong> to strengthen implementation quality.</li>
+            </ul>
+          </article>
+          <article class="job" aria-labelledby="bdevs-role">
+            <div class="job-header">
+              <h3 id="bdevs-role">Web Designer Intern</h3>
+              <p class="date"><time datetime="2022-08">Aug 2022</time> — <time datetime="2022-10">Oct 2022</time></p>
+            </div>
+            <p class="company">Bdevs <span class="job-location">· Mirpur DOHS, Dhaka</span></p>
+            <ul class="detail-list">
+              <li>Built responsive components and marketing landing pages with senior engineers, checking cross-browser consistency, breakpoints, and accessibility.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-heading">
+          <h2 class="section-heading" id="projects-heading">Selected projects</h2>
+          <article class="project" aria-labelledby="commerce-project">
+            <h3 id="commerce-project"><a href="https://neocomerz.com/en" target="_blank" rel="noopener noreferrer">Enterprise E-Commerce &amp; POS Platform</a></h3>
+            <p class="project-stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · Prisma · PostgreSQL · Supabase · Docker · Vercel</p>
+            <p class="project-description">Engineered production e-commerce and POS workflows for product management, checkout, and inventory. Built reusable interfaces, integrated APIs and PostgreSQL data operations, and supported reliable client-side state handling and deployment workflows.</p>
+          </article>
+          <article class="project" aria-labelledby="wordpress-project">
+            <h3 id="wordpress-project">Enterprise WordPress &amp; WooCommerce Solutions</h3>
+            <p class="project-stack">WordPress · WooCommerce · Elementor · PHP · JavaScript</p>
+            <p class="project-description">Delivered tailored WordPress/WooCommerce solutions for international clients, including custom Elementor widgets, theme and plugin customization, responsive layouts, frontend fixes, and post-deployment support.</p>
+          </article>
+          <article class="project" aria-labelledby="frontend-project">
+            <h3 id="frontend-project">Modern Frontend Applications</h3>
+            <p class="project-stack">React · Next.js · TypeScript · Tailwind CSS</p>
+            <p class="project-description">Built responsive, interactive interfaces with reusable components, design-system thinking, API integration, GSAP motion, clean architecture, and maintainable code.</p>
+          </article>
+          <article class="project" aria-labelledby="factory-project">
+            <h3 id="factory-project">DMS Application - Distributors Management System</h3>
+            <p class="project-stack">React · Next.js · Node.js · MongoDB · ERP</p>
+            <p class="project-description">Built a distributor management platform with authentication, inventory oversight, order tracking, reporting dashboards, and business workflow automation to support operational efficiency and decision-making.</p>
+          </article>
+        </section>
+      </div>
+
+      <aside class="sidebar" aria-label="Skills, education, and additional information">
+        <section id="skills" aria-labelledby="skills-heading">
+          <h2 class="section-heading" id="skills-heading">Technical skills</h2>
+          <dl>
+            <div class="skill-group">
+              <dt>Frontend engineering</dt>
+              <dd>
+                <ul class="skill-tags" aria-label="Primary frontend technologies"><li>Next.js</li><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Tailwind CSS</li></ul>
+                <p>HTML5, CSS3, SCSS, Bootstrap, responsive design, reusable components, design systems, GSAP</p>
+              </dd>
+            </div>
+            <div class="skill-group"><dt>Backend &amp; databases</dt><dd>Node.js, Express.js, REST APIs, Prisma ORM, PostgreSQL, Supabase, MySQL</dd></div>
+            <div class="skill-group"><dt>Tools &amp; workflow</dt><dd>Git, GitHub, Docker, Docker Compose, Vercel, GitHub Actions, Postman, Jira, Agile/Scrum</dd></div>
+            <div class="skill-group"><dt>CMS &amp; commerce</dt><dd>WordPress, WooCommerce, Elementor, PHP, theme customization, plugin integration</dd></div>
+          </dl>
+        </section>
+        <section class="education" aria-labelledby="education-heading">
+          <h2 class="section-heading" id="education-heading">Education</h2>
+          <h3>Bachelor of Science in Computer Science &amp; Engineering</h3>
+          <p class="school">World University of Bangladesh</p>
+          <p class="education-status">Ongoing</p>
+          <h3 class="education-secondary">Higher Secondary Certificate (HSC) — Science</h3>
+          <p class="school">Jahangirpur Govt. College, Naogaon</p>
+          <p class="education-status">Completed</p>
+        </section>
+        <section aria-labelledby="recognition-heading">
+          <h2 class="section-heading" id="recognition-heading">Recognition</h2>
+          <ul class="strength-list">
+            <li>Upwork Freelancer Profile</li>
+            <li>Government Freelancer Card (ICT Division)</li>
+          </ul>
+        </section>
+        <section aria-labelledby="strengths-heading">
+          <h2 class="section-heading" id="strengths-heading">Professional strengths</h2>
+          <ul class="strength-list">
+            <li>Client communication &amp; relationships</li>
+            <li>Requirement analysis &amp; planning</li>
+            <li>Project ownership &amp; delivery</li>
+            <li>Problem solving &amp; production support</li>
+            <li>Team collaboration &amp; fast learning</li>
+          </ul>
+        </section>
+        <section aria-labelledby="languages-heading">
+          <h2 class="section-heading" id="languages-heading">Languages</h2>
+          <dl>
+            <div class="language"><dt>Bengali</dt><dd>Native</dd></div>
+            <div class="language"><dt>English</dt><dd>Professional working proficiency</dd></div>
+          </dl>
+        </section>
+      </aside>
+    </div>
+    <footer class="cv-footer">
+      <span>Al Mumeetu Saikat · Software Developer</span>
+      <a href="mailto:almumeetu@gmail.com">Let’s connect ↗</a>
+    </footer>
+  </main>
+  <footer class="page-footer">
+    <p>For a PDF, choose “Save as PDF” in your browser’s print dialog.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+  <script>
+    const printButton = document.getElementById("print-cv");
+    printButton.hidden = false;
+    printButton.addEventListener("click", () => window.print());
+  </script>
+</body>
+</html>
